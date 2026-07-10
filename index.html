@@ -71,7 +71,7 @@
   <div class="wrap stat-row">
     <div class="stat"><span class="num">2,160</span><span class="lab">demonstrations</span></div>
     <div class="stat"><span class="num">18</span><span class="lab">precision tasks</span></div>
-    <div class="stat"><span class="num">50<span class="pct">%</span></span><span class="lab">failure / recovery</span></div>
+    <div class="stat"><span class="num">50<span class="num">%</span></span><span class="lab">failure / recovery</span></div>
     <div class="stat"><span class="num">4</span><span class="lab">RGB-D camera views</span></div>
     <div class="stat"><span class="num">3</span><span class="lab">policy families</span></div>
   </div>
@@ -83,10 +83,8 @@
     <span class="section-tag">01 / A five-phase decomposition</span>
     <h2>One phase structure across all tasks</h2>
     <p class="lead">
-      A unified task-agnostic decomposition is shared across all 18 tasks. Each trajectory is annotated with
-      the time-step boundaries between consecutive phases, so per-phase completion can be measured rather
-      than collapsing an episode into binary success. Hover a phase to see how the same kinematic stage
-      produces qualitatively different outcomes under success and under failure recovery.
+      A unified task-agnostic decomposition is shared across all 18 tasks. Each trajectory is annotated with the time-step boundaries between consecutive phases, so per-phase completion can be measured rather
+      than collapsing an episode into binary success. Hover a phase to see how the same kinematic stage produces qualitatively different outcomes under success and under failure recovery.
     </p>
 
     <div class="pipeline" role="list">
@@ -150,24 +148,15 @@
       <span class="section-tag">02 / Why failure is the signal</span>
       <h2>Policies fail in characterizable ways</h2>
       <p>
-        Imitation-learned policies stall at high-uncertainty states, drift during contact-rich alignment,
-        and miss targets by millimetres. Training datasets, however, consist almost exclusively of clean,
-        successful trajectories, and real-world benchmarks collapse performance into binary success. This
-        leaves policies without supervision for recovery behaviours and researchers without the resolution
-        to localize failure over long horizons.
+        Imitation-learned policies stall at high-uncertainty states, drift during contact-rich alignment, and miss targets by millimetres. Training datasets, however, consist almost exclusively of clean, successful trajectories, and real-world benchmarks collapse performance into binary success. This
+        leaves policies without supervision for recovery behaviours and researchers without the resolution to localize failure over long horizons.
       </p>
       <p>
-        The limitation is stark in precision assembly. Consider inserting a USB-A connector with 0.62&nbsp;mm
-        of engagement clearance. A policy trained only on successes has no exposure to mid-task deviation:
-        arriving at alignment with a lateral offset exceeding the port clearance, it drives forward rather
-        than retracting. The housing catches on the port rim, yaws under contact force, and jams
-        irreversibly. What the policy needs, but was never shown, is a recovery trajectory: retract,
-        re-align, re-approach.
+        The limitation is stark in precision assembly. Consider inserting a USB-A connector with 0.62&nbsp;mm of engagement clearance. A policy trained only on successes has no exposure to mid-task deviation: arriving at alignment with a lateral offset exceeding the port clearance, it drives forward rather
+        than retracting. The housing catches on the port rim, yaws under contact force, and jams irreversibly. What the policy needs, but was never shown, is a recovery trajectory: retract, re-align, re-approach.
       </p>
       <p>
-        REBOOT records that recovery. Half the dataset consists of expert demonstrations; the other half
-        consists of recovery-from-failure demonstrations, sampled to match the empirical failure
-        distribution of imitation-learned policy rollouts.
+        REBOOT records that recovery. Half the dataset consists of expert demonstrations; the other half consists of recovery-from-failure demonstrations, sampled to match the empirical failure distribution of imitation-learned policy rollouts.
       </p>
     </div>
     <figure class="fig">
@@ -186,26 +175,22 @@
       <article class="card">
         <span class="cnum">01</span>
         <h3>Paired failure data</h3>
-        <p>2,160 bi-manual real-robot trajectories: 1,080 expert demonstrations paired with 1,080 recovery
-        episodes, each annotated with the phase of failure induction and a categorical failure mode.</p>
+        <p>2,160 bi-manual real-robot trajectories: 1,080 expert demonstrations paired with 1,080 recovery episodes, each annotated with the phase of failure induction and a categorical failure mode.</p>
       </article>
       <article class="card">
         <span class="cnum">02</span>
         <h3>Shared phase decomposition</h3>
-        <p>A common five-phase sequence with annotated phase boundaries across all 18 install and remove
-        tasks, enabling cross-task failure analysis and recovery transfer.</p>
+        <p>A common five-phase sequence with annotated phase boundaries across all 18 install and remove tasks, enabling cross-task failure analysis and recovery transfer.</p>
       </article>
       <article class="card">
         <span class="cnum">03</span>
         <h3>Mechanical metadata</h3>
-        <p>Each task is annotated with rotational symmetry class, engagement-clearance tier, and matched
-        install and remove pairs, supporting attribution of failure to mechanical tolerance.</p>
+        <p>Each task is annotated with rotational symmetry class, engagement-clearance tier, and install and remove pairs, supporting attribution of failure to mechanical tolerance.</p>
       </article>
       <article class="card">
         <span class="cnum">04</span>
         <h3>Empirical failure profiles</h3>
-        <p>Per-phase failure recorded across ACT, Diffusion Policy, and Pi0-FAST, used to calibrate the
-        expert-to-recovery proportion rather than assuming a uniform mix.</p>
+        <p>Per-phase failure recorded across ACT, Diffusion Policy, and Pi0-FAST, used to calibrate the expert-to-recovery proportion rather than assuming a uniform mix.</p>
       </article>
     </div>
   </div>
@@ -217,10 +202,8 @@
     <span class="section-tag">04 / The task suite</span>
     <h2>9 objects, 18 tasks, expert and recovery demonstrations</h2>
     <p class="lead">
-      The suite is built on NIST Assembly Task Board #1 and comprises nine manufacturing-relevant objects
-      spanning a range of geometric complexity, engagement tolerance, and rotational symmetry. Each object
-      appears in both an install and a remove variant, yielding 18 tasks. Engagement clearances range from
-      an interference-fit RCA connector at 0&nbsp;mm to a loose HAN&nbsp;10E connector at 2.73&nbsp;mm.
+      The suite is built as an extension of NIST Assembly Task Board #1 and comprises nine manufacturing-relevant objects spanning a range of geometric complexity, engagement tolerance, and rotational symmetry. Each object
+      appears in both an install and a remove variant, yielding 18 tasks. Engagement clearances range from an interference-fit RCA connector at 0&nbsp;mm to a loose HAN&nbsp;10E connector at 2.73&nbsp;mm.
     </p>
 
     <div class="table-scroll">
@@ -255,8 +238,7 @@
     <span class="section-tag">05 / The dataset</span>
     <h2>Success and recovery, side by side</h2>
     <p class="lead">
-      60 Teleoperated demonstrations per task were collected with synchronized RGB-D observations from four fixed viewpoints: overhead,
-      front-facing, and one per wrist, recorded at 30&nbsp;Hz. Below, expert executions are shown alongside recovery episodes for the same task.
+      60 Teleoperated demonstrations per task were collected with a bi-manual Trossen WidowXAI robot, with proprioception data and RGB-D observations from four fixed viewpoints: overhead, front-facing, and one per wrist, recorded at 30&nbsp;Hz. Below, expert executions are shown alongside recovery episodes for the same task.
     </p>
 
     <div class="video-grid">
