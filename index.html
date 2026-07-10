@@ -72,7 +72,7 @@
     <div class="stat"><span class="num">2,160</span><span class="lab">demonstrations</span></div>
     <div class="stat"><span class="num">18</span><span class="lab">precision tasks</span></div>
     <div class="stat"><span class="num">50<span class="pct">%</span></span><span class="lab">failure / recovery</span></div>
-    <div class="stat"><span class="num">4</span><span class="lab">RGB-D viewpoints</span></div>
+    <div class="stat"><span class="num">4</span><span class="lab">RGB-D camera views</span></div>
     <div class="stat"><span class="num">3</span><span class="lab">policy families</span></div>
   </div>
 </section>
@@ -81,9 +81,9 @@
 <section class="section" id="pipeline">
   <div class="wrap">
     <span class="section-tag">01 / A five-phase decomposition</span>
-    <h2>Every task, one pipeline</h2>
+    <h2>One phase structure across all tasks</h2>
     <p class="lead">
-      A single task-agnostic decomposition is shared across all 18 tasks. Each trajectory is annotated with
+      A unified task-agnostic decomposition is shared across all 18 tasks. Each trajectory is annotated with
       the time-step boundaries between consecutive phases, so per-phase completion can be measured rather
       than collapsing an episode into binary success. Hover a phase to see how the same kinematic stage
       produces qualitatively different outcomes under success and under failure recovery.
@@ -255,9 +255,8 @@
     <span class="section-tag">05 / The dataset</span>
     <h2>Success and recovery, side by side</h2>
     <p class="lead">
-      All data are collected with synchronized RGB-D observations from four fixed viewpoints: overhead,
-      front-facing, and one per wrist, recorded at 30&nbsp;Hz. Below, expert executions are shown alongside
-      recovery episodes for the same task.
+      60 Teleoperated demonstrations per task were collected with synchronized RGB-D observations from four fixed viewpoints: overhead,
+      front-facing, and one per wrist, recorded at 30&nbsp;Hz. Below, expert executions are shown alongside recovery episodes for the same task.
     </p>
 
     <div class="video-grid">
